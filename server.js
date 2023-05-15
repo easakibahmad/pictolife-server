@@ -82,7 +82,7 @@ app.prepare().then(() => {
       await userCollection.insertOne(newUser);
 
       // Return a success response if sign-in is successful
-      return res.status(200).json({ success: true });
+      return res.status(200).json({ success: true, user: newUser });
     } catch (error) {
       console.error("Error hashing password:", error);
       return res.status(500).json({ error: "Internal server error" });
